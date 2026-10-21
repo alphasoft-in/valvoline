@@ -212,11 +212,11 @@ const categoryTabs = [
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       
       <div class="max-w-3xl">
-        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-red-100/80 border border-red-200 text-[#dd0000] text-xs font-bold uppercase tracking-wider mb-3">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-red-100/80 border border-red-200 text-[#dd0000] text-xs font-semibold uppercase tracking-wider mb-2.5">
           <span>Catálogo Técnico Oficial</span>
         </div>
         
-        <h1 class="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight uppercase text-slate-900 mb-3">
+        <h1 class="text-2xl sm:text-3xl lg:text-4xl font-bold tracking-tight text-slate-900 mb-2">
           Equipos y Soluciones en <span class="text-[#dd0000]">Fluidos</span>
         </h1>
         
@@ -226,13 +226,13 @@ const categoryTabs = [
       </div>
 
       <!-- Buscador interno en página y resumen de filtros -->
-      <div class="mt-8 max-w-xl">
+      <div class="mt-6 max-w-xl">
         <div class="relative">
           <input 
             type="text" 
             id="catalog-search" 
             placeholder="Buscar por nombre, código o norma técnica..." 
-            class="w-full bg-white text-slate-900 placeholder-slate-400 text-xs sm:text-sm pl-10 pr-4 py-3 rounded-xl border border-neutral-300 focus:outline-none focus:ring-2 focus:ring-[#dd0000] shadow-sm"
+            class="w-full bg-white text-slate-900 placeholder-slate-400 text-xs sm:text-sm pl-10 pr-4 py-2.5 rounded-xl border border-neutral-300 focus:outline-none focus:ring-2 focus:ring-[#dd0000] shadow-2xs"
           />
           <svg class="w-4 h-4 text-slate-400 absolute left-3.5 top-1/2 -translate-y-1/2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
@@ -253,7 +253,7 @@ const categoryTabs = [
           <button
             type="button"
             data-category-target={cat.id}
-            class={`catalog-tab-btn px-4 py-2 rounded-lg text-xs font-bold whitespace-nowrap transition-all duration-200 cursor-pointer ${
+            class={`catalog-tab-btn px-3.5 py-1.5 rounded-lg text-xs font-medium whitespace-nowrap transition-all duration-200 cursor-pointer ${
               idx === 0 
                 ? "bg-[#dd0000] text-white shadow-sm" 
                 : "bg-white text-neutral-700 hover:bg-neutral-200/80 border border-neutral-200"
@@ -299,34 +299,34 @@ const categoryTabs = [
             </div>
 
             <!-- Información Técnica del Producto -->
-            <div class="p-6 flex-1 flex flex-col justify-between">
+            <div class="p-5 flex-1 flex flex-col justify-between">
               <div>
-                <span class="text-[10px] font-black uppercase tracking-wider text-[#dd0000] block mb-1">
+                <span class="text-[10px] font-semibold uppercase tracking-wider text-[#dd0000] block mb-1">
                   {item.categoryName}
                 </span>
 
-                <h3 class="text-base font-black text-[#010101] tracking-tight uppercase leading-snug group-hover:text-[#dd0000] transition-colors mb-2.5">
+                <h3 class="text-xs sm:text-sm font-bold text-slate-800 tracking-tight leading-snug group-hover:text-[#dd0000] transition-colors mb-2">
                   {item.name}
                 </h3>
 
-                <p class="text-xs text-neutral-600 font-normal leading-relaxed mb-4">
+                <p class="text-[11px] text-neutral-600 font-normal leading-relaxed mb-3">
                   {item.specs}
                 </p>
 
                 <!-- Norma Técnica -->
-                <div class="bg-neutral-50 p-2.5 rounded-lg border border-neutral-200/70 text-[11px] text-neutral-700 mb-4">
-                  <span class="block font-bold text-neutral-900 mb-0.5">Normas Aplicables:</span>
-                  <span class="text-neutral-600">{item.norm}</span>
+                <div class="bg-neutral-50 p-2 rounded-lg border border-neutral-200/70 text-[11px] text-neutral-700 mb-3">
+                  <span class="block font-semibold text-neutral-800 mb-0.5">Normas Aplicables:</span>
+                  <span class="text-neutral-500 font-normal">{item.norm}</span>
                 </div>
 
                 <!-- Diámetros Disponibles -->
-                <div class="mb-5">
-                  <span class="block text-[10px] font-bold text-neutral-500 uppercase tracking-wider mb-1.5">
+                <div class="mb-4">
+                  <span class="block text-[10px] font-medium text-neutral-400 uppercase tracking-wider mb-1">
                     Diámetros / Medidas:
                   </span>
-                  <div class="flex flex-wrap gap-1.5">
+                  <div class="flex flex-wrap gap-1">
                     {item.diameters.map((d) => (
-                      <span class="px-2 py-0.5 rounded bg-neutral-100 text-[10px] font-bold text-neutral-800 border border-neutral-200">
+                      <span class="px-1.5 py-0.5 rounded bg-neutral-100 text-[10px] font-medium text-neutral-700 border border-neutral-200">
                         {d}
                       </span>
                     ))}
@@ -335,12 +335,12 @@ const categoryTabs = [
               </div>
 
               <!-- Botones de Acción -->
-              <div class="pt-4 border-t border-neutral-100 flex flex-col sm:flex-row gap-2">
+              <div class="pt-3 border-t border-neutral-100 flex flex-col sm:flex-row gap-2">
                 <a
                   href={`https://wa.me/51926961256?text=${encodeURIComponent(`Hola Valvoline Perú, deseo solicitar cotización técnica del producto: ${item.name} (${item.code})`)}`}
                   target="_blank"
                   rel="noopener noreferrer"
-                  class="flex-1 px-4 py-2.5 bg-[#dd0000] hover:bg-[#b80000] text-white font-bold text-xs uppercase tracking-wide rounded-lg transition-colors flex items-center justify-center gap-2 cursor-pointer shadow-xs"
+                  class="flex-1 px-3.5 py-2 bg-[#dd0000] hover:bg-[#b80000] text-white font-medium text-xs tracking-normal rounded-lg transition-colors flex items-center justify-center gap-1.5 cursor-pointer shadow-2xs"
                 >
                   <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24">
                     <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/>
@@ -350,7 +350,7 @@ const categoryTabs = [
 
                 <a
                   href="/contacto"
-                  class="px-4 py-2.5 bg-neutral-100 hover:bg-neutral-200 text-neutral-700 font-bold text-xs uppercase tracking-wide rounded-lg transition-colors flex items-center justify-center cursor-pointer"
+                  class="px-3.5 py-2 bg-neutral-100 hover:bg-neutral-200 text-neutral-600 font-medium text-xs tracking-normal rounded-lg transition-colors flex items-center justify-center cursor-pointer"
                 >
                   <span>Ficha</span>
                 </a>

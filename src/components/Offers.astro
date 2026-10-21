@@ -104,14 +104,14 @@ const categories = [
     <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-8 sm:mb-10">
       <div>
         <!-- Kicker corporativo con icono de oferta -->
-        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#dd0000]/10 border border-[#dd0000]/20 text-[#dd0000] text-xs font-black uppercase tracking-wider mb-2.5">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#dd0000]/10 border border-[#dd0000]/20 text-[#dd0000] text-xs font-semibold uppercase tracking-wider mb-2.5">
           <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24">
             <path d="M12.75 2.75a.75.75 0 00-1.5 0v1.5a.75.75 0 001.5 0v-1.5zM6.343 4.93a.75.75 0 00-1.06 1.06l1.06 1.06a.75.75 0 001.061-1.06L6.343 4.93zM18.718 6.05a.75.75 0 00-1.061-1.06l-1.06 1.06a.75.75 0 001.06 1.06l1.061-1.06zM3.75 11.25a.75.75 0 000 1.5h1.5a.75.75 0 000-1.5h-1.5zM18.75 11.25a.75.75 0 000 1.5h1.5a.75.75 0 000-1.5h-1.5zM7.404 16.596a.75.75 0 00-1.06-1.06l-1.061 1.06a.75.75 0 001.06 1.061l1.06-1.061zM17.657 15.536a.75.75 0 00-1.06 1.06l1.06 1.061a.75.75 0 001.061-1.06l-1.06-1.061zM12 7.5a4.5 4.5 0 100 9 4.5 4.5 0 000-9z"/>
           </svg>
           <span>Promociones del Mes • Stock Inmediato</span>
         </div>
         
-        <h2 class="text-2xl sm:text-3xl lg:text-4xl font-black text-[#010101] tracking-tight uppercase leading-tight">
+        <h2 class="text-xl sm:text-2xl lg:text-3xl font-bold text-slate-900 tracking-tight leading-snug">
           Ofertas Especiales en <span class="text-[#dd0000]">Medición & Válvulas</span>
         </h2>
         <p class="text-xs sm:text-sm text-neutral-600 mt-2 max-w-2xl font-normal leading-relaxed">
@@ -125,7 +125,7 @@ const categories = [
           <button
             type="button"
             data-filter={cat.id}
-            class={`offer-filter-btn px-3.5 py-1.5 rounded-full text-xs font-bold transition-all duration-200 cursor-pointer ${
+            class={`offer-filter-btn px-3.5 py-1.5 rounded-full text-xs font-medium transition-all duration-200 cursor-pointer ${
               idx === 0 
                 ? "bg-[#dd0000] text-white shadow-sm" 
                 : "bg-white text-neutral-700 hover:bg-neutral-200/70 border border-neutral-200"
@@ -148,20 +148,20 @@ const categories = [
           <div class="relative bg-neutral-50 border-b border-neutral-100 p-4 flex flex-col items-center justify-center min-h-[200px]">
             <!-- Badges Superiores -->
             <div class="absolute top-3 left-3 flex flex-col gap-1 z-10 items-start">
-              <span class={`text-[10px] font-black uppercase px-2.5 py-0.5 rounded shadow-xs tracking-wider ${
+              <span class={`text-[10px] font-semibold uppercase px-2.5 py-0.5 rounded shadow-2xs tracking-wider ${
                 item.badgeColor === "yellow" 
                   ? "bg-[#ffcc00] text-[#010101]" 
                   : "bg-[#dd0000] text-white"
               }`}>
                 {item.badge}
               </span>
-              <span class="bg-red-50 text-[#dd0000] border border-red-200 font-black text-[11px] px-2 py-0.5 rounded shadow-xs">
+              <span class="bg-red-50 text-[#dd0000] border border-red-200 font-bold text-[10px] px-2 py-0.5 rounded shadow-2xs">
                 {item.discount}
               </span>
             </div>
 
             <!-- Código de Producto sutil a la derecha -->
-            <span class="absolute top-3 right-3 text-[10px] font-bold text-neutral-400 bg-white/80 px-1.5 py-0.5 rounded border border-neutral-200">
+            <span class="absolute top-3 right-3 text-[10px] font-medium text-neutral-500 bg-white/80 px-1.5 py-0.5 rounded border border-neutral-200">
               {item.code}
             </span>
 
@@ -176,7 +176,7 @@ const categories = [
             </div>
 
             <!-- Disponibilidad de Stock -->
-            <div class="w-full flex items-center justify-center gap-1.5 text-[10px] text-emerald-700 font-semibold mt-1">
+            <div class="w-full flex items-center justify-center gap-1.5 text-[10px] text-emerald-700 font-medium mt-1">
               <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
               <span>{item.stockText}</span>
             </div>
@@ -185,10 +185,10 @@ const categories = [
           <!-- Cuerpo de la Tarjeta -->
           <div class="p-5 flex-1 flex flex-col justify-between">
             <div>
-              <span class="text-[10px] font-black uppercase tracking-wider text-[#dd0000] block mb-1">
+              <span class="text-[10px] font-semibold uppercase tracking-wider text-[#dd0000] block mb-1">
                 {item.categoryLabel}
               </span>
-              <h3 class="text-sm font-black text-[#010101] tracking-tight uppercase leading-snug group-hover:text-[#dd0000] transition-colors mb-2">
+              <h3 class="text-xs sm:text-sm font-bold text-slate-800 tracking-tight leading-snug group-hover:text-[#dd0000] transition-colors mb-2">
                 {item.title}
               </h3>
               <p class="text-[11px] text-neutral-600 font-normal leading-relaxed line-clamp-3 mb-4">
@@ -205,16 +205,16 @@ const categories = [
                     Antes {item.originalPrice}
                   </span>
                   <div class="flex items-baseline gap-1">
-                    <span class="text-base sm:text-lg font-black text-[#dd0000] tracking-tight">
+                    <span class="text-base font-bold text-[#dd0000] tracking-tight">
                       {item.offerPrice}
                     </span>
-                    <span class="text-[10px] font-bold text-neutral-500 uppercase">+ IGV</span>
+                    <span class="text-[10px] font-semibold text-neutral-500 uppercase">+ IGV</span>
                   </div>
                 </div>
 
                 <div class="text-right">
-                  <span class="text-[9px] uppercase font-bold text-neutral-400 block">Precios por Mayor</span>
-                  <span class="text-[10px] font-extrabold text-[#dd0000]">Consultar Lote</span>
+                  <span class="text-[9px] uppercase font-medium text-neutral-400 block">Precios por Mayor</span>
+                  <span class="text-[10px] font-bold text-[#dd0000]">Consultar Lote</span>
                 </div>
               </div>
 
@@ -225,9 +225,9 @@ const categories = [
                   href={`https://wa.me/51926961256?text=${encodeURIComponent(item.whatsappMessage)}`}
                   target="_blank"
                   rel="noopener noreferrer"
-                  class="w-full bg-[#ffcc00] hover:bg-[#f0be00] text-[#010101] font-black text-xs uppercase tracking-wide py-2.5 px-3 rounded-lg flex items-center justify-center gap-2 transition-all shadow-xs hover:shadow-md cursor-pointer"
+                  class="w-full bg-[#ffcc00] hover:bg-[#f0be00] text-[#010101] font-semibold text-xs tracking-normal py-2 px-3 rounded-lg flex items-center justify-center gap-2 transition-all shadow-xs hover:shadow-md cursor-pointer"
                 >
-                  <svg class="w-4 h-4 fill-current shrink-0" viewBox="0 0 24 24">
+                  <svg class="w-3.5 h-3.5 fill-current shrink-0" viewBox="0 0 24 24">
                     <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/>
                   </svg>
                   <span>Cotizar Oferta</span>
@@ -236,7 +236,7 @@ const categories = [
                 <!-- Enlace secundario directo para detalles -->
                 <a
                   href="/contacto"
-                  class="w-full bg-white hover:bg-neutral-50 text-neutral-700 hover:text-[#dd0000] border border-neutral-200 font-bold text-[11px] py-1.5 px-3 rounded-lg flex items-center justify-center transition-colors cursor-pointer"
+                  class="w-full bg-white hover:bg-neutral-50 text-neutral-600 hover:text-[#dd0000] border border-neutral-200 font-medium text-[11px] py-1.5 px-3 rounded-lg flex items-center justify-center transition-colors cursor-pointer"
                 >
                   <span>Ficha Técnica y Detalles</span>
                 </a>
@@ -256,10 +256,10 @@ const categories = [
           </svg>
         </div>
         <div>
-          <span class="text-[10px] font-black uppercase tracking-widest text-[#ffcc00] block mb-1">
+          <span class="text-[10px] font-semibold uppercase tracking-wider text-[#ffcc00] block mb-1">
             Atención Especial a Obras y Licitaciones
           </span>
-          <h4 class="text-base sm:text-lg font-black tracking-tight uppercase text-white">
+          <h4 class="text-base sm:text-lg font-bold tracking-tight text-white">
             ¿Tienes una lista de materiales o expediente técnico?
           </h4>
           <p class="text-xs text-red-100 font-normal mt-1 max-w-2xl leading-relaxed">
@@ -274,7 +274,7 @@ const categories = [
           href="https://wa.me/51926961256?text=Hola,%20tengo%20una%20lista%20de%20materiales%20para%20cotizar" 
           target="_blank"
           rel="noopener noreferrer"
-          class="w-full sm:w-auto px-6 py-3 bg-white hover:bg-neutral-100 text-[#dd0000] font-black text-xs uppercase tracking-wider rounded-lg transition-all duration-200 text-center shadow-md hover:shadow-lg cursor-pointer flex items-center justify-center gap-2"
+          class="w-full sm:w-auto px-5 py-2.5 bg-white hover:bg-neutral-100 text-[#dd0000] font-bold text-xs uppercase tracking-wider rounded-lg transition-all duration-200 text-center shadow-md hover:shadow-lg cursor-pointer flex items-center justify-center gap-2"
         >
           <span>Enviar Lista por WhatsApp</span>
           <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24">
