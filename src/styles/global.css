@@ -1,0 +1,11 @@
+@import "tailwindcss";
+
+@theme {
+  --color-valvo-red: #dd0000;
+  --color-valvo-yellow: #ffcc00;
+  --color-valvo-black: #010101;
+}
+
+button, [type='button'], [type='reset'], [type='submit'] {
+  cursor: pointer;
+}

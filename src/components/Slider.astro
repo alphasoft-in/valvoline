@@ -1,0 +1,236 @@
+---
+// Slider.astro - Slider minimalista industrial estilo catálogo (fondo blanco puro, productos aislados, navegación sutil)
+
+interface SlideItem {
+  id: number;
+  tagline: string;
+  brandTitle: string;
+  subTitle: string;
+  specs: string;
+  image: string;
+  imageAlt: string;
+}
+
+const slides: SlideItem[] = [
+  {
+    id: 1,
+    tagline: "TECNOLOGÍA EN CONTROL DE FLUIDOS",
+    brandTitle: "VALVOLINE®",
+    subTitle: "VÁLVULAS DE HIERRO DÚCTIL",
+    specs: "Tecnología italiana de alta resistencia • Válvulas de compuerta y control para redes matrices",
+    image: "/images/slide-1.png",
+    imageAlt: "Válvulas industriales de compuerta Valvoline Perú"
+  },
+  {
+    id: 2,
+    tagline: "VÁLVULAS & ACCESORIOS DE BRONCE",
+    brandTitle: "LÍNEA EN BRONCE",
+    subTitle: "COMPUERTA, ESFÉRICAS Y CHECK",
+    specs: "Bronce forjado y latón de máxima durabilidad • Válvulas esféricas, compuerta, retención, canastilla y flotador",
+    image: "/images/slide-2.png",
+    imageAlt: "Válvulas y accesorios de bronce Valvoline Perú"
+  },
+  {
+    id: 3,
+    tagline: "CONTROL HIDRÁULICO & REGULACIÓN",
+    brandTitle: "VÁLVULAS ESPECIALES",
+    subTitle: "MARIPOSA, CONTROL & ACCESORIOS",
+    specs: "Válvulas reguladoras y reductoras de presión con piloto • Válvulas mariposa con reductor • Juntas de desmontaje y adaptadores",
+    image: "/images/slide-3.png",
+    imageAlt: "Válvulas especiales y accesorios para agua Valvoline Perú"
+  }
+  /*
+  {
+    id: 4,
+    tagline: "CONTROL Y SEGURIDAD HIDRÁULICA",
+    brandTitle: "VÁLVULAS INDUSTRIALES",
+    subTitle: "ALIVIO, COMPUERTA Y RETENCIÓN",
+    specs: "Hierro dúctil epóxico • Alta resistencia a la corrosión y sobrepresión",
+    image: "/images/industrial_valves.png",
+    imageAlt: "Válvulas industriales de hierro dúctil"
+  },
+  {
+    id: 5,
+    tagline: "CALIDAD HOMOLOGADA A NIVEL NACIONAL",
+    brandTitle: "VALVOLINE PERÚ",
+    subTitle: "CERTIFICACIÓN ISO 9001 / SGS",
+    specs: "Cumplimiento de normas técnicas para redes de agua potable en todo el Perú",
+    image: "/images/meters_duo.jpg",
+    imageAlt: "Equipos certificados Valvoline Perú"
+  }
+  */
+];
+---
+
+<section id="minimal-slider" class="relative w-full min-h-[calc(100vh-142px)] bg-white select-none overflow-hidden flex flex-col justify-between">
+  
+  <!-- Contenedor central compacto (evita que texto e imagen queden excesivamente separados) -->
+  <div class="w-full max-w-4xl lg:max-w-4xl mx-auto px-4 sm:px-6 flex-1 flex items-center justify-center my-auto">
+    
+    <!-- Contenedor de Slides -->
+    <div class="relative w-full flex items-center">
+      {slides.map((slide, index) => (
+        <div 
+          class={`slide-item w-full transition-all duration-500 ease-in-out ${index === 0 ? 'opacity-100 relative z-10' : 'opacity-0 absolute inset-0 pointer-events-none z-0'}`}
+          data-slide-index={index}
+        >
+          <div class="grid grid-cols-1 md:grid-cols-12 gap-6 md:gap-8 items-center">
+            
+            <!-- Columna de Texto (Izquierda) -->
+            <div class="md:col-span-6 text-center md:text-left flex flex-col justify-center">
+              
+              <!-- Tagline rojo minimalista -->
+              <span class="text-[11px] sm:text-xs font-bold uppercase tracking-[0.2em] text-[#dd0000] block mb-2">
+                {slide.tagline}
+              </span>
+
+              <!-- Marca en tipografía imponente -->
+              <h2 class="text-3xl sm:text-4xl lg:text-5xl font-black text-[#010101] tracking-tight uppercase leading-none">
+                {slide.brandTitle}
+              </h2>
+
+              <!-- Subtítulo complementario -->
+              <h3 class="text-base sm:text-lg lg:text-xl font-bold text-slate-700 tracking-tight mt-2 uppercase">
+                {slide.subTitle}
+              </h3>
+
+              <!-- Especificaciones técnicas breves -->
+              <p class="text-xs sm:text-sm text-slate-500 mt-3 font-normal max-w-sm leading-relaxed">
+                {slide.specs}
+              </p>
+
+              <!-- Botón sutil de consulta -->
+              <div class="mt-5">
+                <a 
+                  href={`https://api.whatsapp.com/send?phone=51926961256&text=Hola%20Valvoline%20Per%C3%BA,%20deseo%20informaci%C3%B3n%20sobre%20${encodeURIComponent(slide.brandTitle)}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-[#dd0000] hover:text-[#b80000] border-b-2 border-[#dd0000] pb-0.5 hover:gap-3 transition-all cursor-pointer"
+                >
+                  <span>Consultar especificaciones</span>
+                  <svg class="w-3.5 h-3.5 stroke-[2.5]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
+                  </svg>
+                </a>
+              </div>
+
+            </div>
+
+            <!-- Columna de Imagen (Derecha, cercana al texto) -->
+            <div class="md:col-span-6 flex items-center justify-center p-2">
+              <div class="w-full max-w-xs sm:max-w-sm h-[200px] sm:h-[240px] lg:h-[260px] flex items-center justify-center">
+                <img 
+                  src={slide.image} 
+                  alt={slide.imageAlt}
+                  class="max-h-full max-w-full object-contain transition-transform duration-300 hover:scale-[1.02]"
+                  loading={index === 0 ? "eager" : "lazy"}
+                />
+              </div>
+            </div>
+
+          </div>
+        </div>
+      ))}
+    </div>
+
+  </div>
+
+  <!-- Flecha Izquierda Minimalista (<) situada en el borde exterior de la pantalla -->
+  <button 
+    id="slider-prev-btn"
+    type="button"
+    aria-label="Anterior"
+    class="absolute left-2 sm:left-6 top-1/2 -translate-y-1/2 p-2 text-[#dd0000] hover:text-[#b80000] hover:scale-125 transition-all z-20 focus:outline-none cursor-pointer"
+  >
+    <svg class="w-7 h-7 sm:w-9 sm:h-9 stroke-[1.5]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+      <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" />
+    </svg>
+  </button>
+
+  <!-- Flecha Derecha Minimalista (>) situada en el borde exterior de la pantalla -->
+  <button 
+    id="slider-next-btn"
+    type="button"
+    aria-label="Siguiente"
+    class="absolute right-2 sm:right-6 top-1/2 -translate-y-1/2 p-2 text-[#dd0000] hover:text-[#b80000] hover:scale-125 transition-all z-20 focus:outline-none cursor-pointer"
+  >
+    <svg class="w-7 h-7 sm:w-9 sm:h-9 stroke-[1.5]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+      <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
+    </svg>
+  </button>
+
+  <!-- Puntos de Navegación Centrados en la parte inferior del slider -->
+  <div class="pb-6 sm:pb-8 flex items-center justify-center z-20">
+    <div id="slider-dots" class="flex items-center gap-2">
+      {slides.map((_, index) => (
+        <button
+          type="button"
+          data-dot-index={index}
+          aria-label={`Ir al slide ${index + 1}`}
+          class={`slider-dot transition-all duration-300 rounded-full h-2 cursor-pointer ${index === 0 ? 'w-7 bg-[#dd0000]' : 'w-2 bg-slate-300 hover:bg-slate-400'}`}
+        />
+      ))}
+    </div>
+  </div>
+
+</section>
+
+<script>
+  let currentSlide = 0;
+  const slideItems = document.querySelectorAll<HTMLElement>('.slide-item');
+  const dotItems = document.querySelectorAll<HTMLElement>('.slider-dot');
+  const totalSlides = slideItems.length;
+  const prevBtn = document.getElementById('slider-prev-btn');
+  const nextBtn = document.getElementById('slider-next-btn');
+  const sliderSection = document.getElementById('minimal-slider');
+
+  function showSlide(index: number) {
+    currentSlide = (index + totalSlides) % totalSlides;
+
+    slideItems.forEach((item, idx) => {
+      if (idx === currentSlide) {
+        item.classList.remove('opacity-0', 'absolute', 'pointer-events-none', 'z-0');
+        item.classList.add('opacity-100', 'relative', 'z-10');
+      } else {
+        item.classList.remove('opacity-100', 'relative', 'z-10');
+        item.classList.add('opacity-0', 'absolute', 'pointer-events-none', 'z-0');
+      }
+    });
+
+    dotItems.forEach((dot, idx) => {
+      if (idx === currentSlide) {
+        dot.classList.remove('w-2', 'bg-slate-300');
+        dot.classList.add('w-6', 'bg-[#dd0000]');
+      } else {
+        dot.classList.remove('w-6', 'bg-[#dd0000]');
+        dot.classList.add('w-2', 'bg-slate-300');
+      }
+    });
+  }
+
+  if (prevBtn) {
+    prevBtn.addEventListener('click', () => showSlide(currentSlide - 1));
+  }
+
+  if (nextBtn) {
+    nextBtn.addEventListener('click', () => showSlide(currentSlide + 1));
+  }
+
+  dotItems.forEach((dot) => {
+    dot.addEventListener('click', () => {
+      const idx = Number(dot.getAttribute('data-dot-index'));
+      if (!isNaN(idx)) showSlide(idx);
+    });
+  });
+
+  // Autoplay cada 5 segundos con pausa al pasar el cursor
+  let autoPlayTimer = setInterval(() => showSlide(currentSlide + 1), 5000);
+
+  if (sliderSection) {
+    sliderSection.addEventListener('mouseenter', () => clearInterval(autoPlayTimer));
+    sliderSection.addEventListener('mouseleave', () => {
+      clearInterval(autoPlayTimer);
+      autoPlayTimer = setInterval(() => showSlide(currentSlide + 1), 5000);
+    });
+  }
+</script>
