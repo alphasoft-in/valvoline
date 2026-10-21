@@ -1,36 +1,18 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import TopHeader from '../components/TopHeader.astro';
-import MainHeader from '../components/MainHeader.astro';
-import Navbar from '../components/Navbar.astro';
 import Slider from '../components/Slider.astro';
 import Features from '../components/Features.astro';
 import Offers from '../components/Offers.astro';
-import Footer from '../components/Footer.astro';
 ---
 
 <Layout title="VALVOLINE PERÚ | Medidores de Agua, Saneamiento e Infraestructura">
-  <!-- 1. Top Header (Teléfonos, Correo y Cinta Tricolor en el medio) -->
-  <TopHeader />
+  <!-- 1. Slider Profesional (3 Slides interactivos) -->
+  <Slider />
 
-  <!-- 2. Main Header (Logo oficial, Buscador rápido y Redes Sociales) -->
-  <MainHeader />
+  <!-- 2. Pilares y Garantías de Confianza -->
+  <Features />
 
-  <!-- 3. Barra de Navegación (Inicio, Nosotros, Productos, Contáctanos) -->
-  <Navbar />
-
-  <!-- 4. Contenido Principal -->
-  <main id="inicio" class="w-full">
-    <!-- Slider Profesional (3 Slides interactivos) -->
-    <Slider />
-
-    <!-- 5. Pilares y Garantías de Confianza -->
-    <Features />
-
-    <!-- 6. Sección de Ofertas y Promociones Especiales -->
-    <Offers />
-  </main>
-
-  <!-- 7. Footer Corporativo Sobrio -->
-  <Footer />
+  <!-- 3. Sección de Ofertas y Promociones Especiales -->
+  <Offers />
 </Layout>
+
