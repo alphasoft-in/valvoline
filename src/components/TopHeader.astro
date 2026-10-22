@@ -1,10 +1,17 @@
 ---
-// TopHeader.astro - Barra superior compacta con cinta tricolor en el medio (entre TopHeader y MainHeader)
+// TopHeader.astro - Barra superior compacta con cinta tricolor en la parte superior
 ---
 
 <div class="bg-white text-[#010101] text-[11px] relative select-none">
   
-  <!-- Contenido compacto y subido (py-1.5) -->
+  <!-- Cinta tricolor corporativa en la parte superior absoluta de la página -->
+  <div class="h-[3.5px] w-full flex">
+    <div class="h-full w-1/3 bg-[#dd0000]"></div>
+    <div class="h-full w-1/3 bg-[#ffcc00]"></div>
+    <div class="h-full w-1/3 bg-[#010101]"></div>
+  </div>
+
+  <!-- Contenido compacto (py-1.5) -->
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-1.5 flex flex-wrap items-center justify-center gap-4 sm:gap-6">
     
     <!-- Teléfonos -->
@@ -12,7 +19,7 @@
       <svg class="w-3.5 h-3.5 text-slate-500 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
         <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z" />
       </svg>
-      <div class="flex items-center gap-1.5 font-bold tracking-tight text-[#010101]">
+      <div class="flex items-center gap-1.5 font-semibold tracking-tight text-slate-800">
         <a href="tel:926961256" class="hover:text-[#dd0000] transition-colors">926 961 256</a>
         <span class="text-slate-300">/</span>
         <a href="tel:974509023" class="hover:text-[#dd0000] transition-colors">974 509 023</a>
@@ -20,28 +27,21 @@
     </div>
 
     <!-- Separador fino -->
-    <span class="h-3 w-px bg-slate-300 hidden sm:block"></span>
+    <span class="h-3 w-px bg-slate-200 hidden sm:block"></span>
 
     <!-- Correo de Ventas -->
-    <div class="flex items-center gap-2 font-bold">
+    <div class="flex items-center gap-2 font-medium">
       <svg class="w-3.5 h-3.5 text-slate-500 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
         <path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75" />
       </svg>
       <a 
         href="mailto:ventas@valvoline-peru.com" 
-        class="text-[#010101] hover:text-[#dd0000] transition-colors tracking-tight"
+        class="text-slate-700 hover:text-[#dd0000] transition-colors tracking-tight"
       >
         ventas@valvoline-peru.com
       </a>
     </div>
 
-  </div>
-
-  <!-- Cinta tricolor corporativa colocada al medio (entre TopHeader y MainHeader) -->
-  <div class="h-[3px] w-full flex">
-    <div class="h-full w-1/3 bg-[#dd0000]"></div>
-    <div class="h-full w-1/3 bg-[#ffcc00]"></div>
-    <div class="h-full w-1/3 bg-[#010101]"></div>
   </div>
 
 </div>
